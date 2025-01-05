@@ -1,13 +1,13 @@
 /* Global Styles */
 @font-face {
   font-family: "AGaramondPro";
-  src: url("./mat/font/EBGaramond-VariableFont_wght.ttf");
+  src: url("/assets/fonts/EBGaramond-VariableFont_wght.ttf");
   font-style: normal;
 }
 
 @font-face {
   font-family: "AGaramondPro-Italic";
-  src: url("./mat/font/EBGaramond-Italic-VariableFont_wght.ttf");
+  src: url("/assets/fonts/EBGaramond-Italic-VariableFont_wght.ttf");
 }
 
 a {
@@ -17,8 +17,6 @@ a {
   text-underline-offset: 4px;
   text-decoration-thickness: 1px;
 }
-
-/*einzüge*/
 
 a:visited {
   color: var(--visited-link);
@@ -114,6 +112,9 @@ body {
 p {
   text-indent: 60px;
 }
+#contact p {
+  text-indent: 0px;
+}
 
 p:nth-child(1) {
   text-indent: 0px;
@@ -152,7 +153,6 @@ img {
   width: 100%;
   height: auto;
   display: inline-block;
-  /*    vertical-align: top;*/
 
   -webkit-filter: invert(1);
   /* Safari 6.0 - 9.0 */
@@ -172,8 +172,6 @@ img:nth-child(3) {
 }
 
 .subcategory-title {
-  /*    text-decoration: underline;*/
-  /*    text-indent: 40px;*/
   margin-left: 5px;
 }
 
@@ -184,8 +182,6 @@ li {
   list-style: none;
 }
 
-/*change underline height?*/
-
 .einzug {
   margin-left: 60px;
 }
@@ -193,18 +189,12 @@ li {
 .titelschrift-kleiner {
   font-size: 18px;
   margin-left: 5px;
-  /*    font-variant: small-caps;*/
 }
 
 .copyrighttext {
   font-size: 14px;
   line-height: 16px;
   margin: 20px;
-
-  /*
-    position: relative;
-    display: inline-block;
-*/
   width: 34vw;
 }
 
@@ -214,14 +204,11 @@ li {
     height: auto;
     position: relative;
     margin: 2vw;
-    /*        margin: 10px;*/
   }
 
   #left-panel {
     width: 100%;
     margin: 2vw;
-    /*        margin: 10px;*/
-    /*        overflow-y: scroll;*/
   }
 
   img {
@@ -242,7 +229,6 @@ li {
     font-size: 6vw;
     line-height: 1.3em;
     line-height: 1.2;
-    /*        padding: 2vw;*/
   }
 
   .textcontent {
@@ -258,8 +244,6 @@ li {
   #left-panel {
     width: 100%;
     margin: 2vw;
-    /*        margin: 10px;*/
-    /*        overflow-y: scroll;*/
   }
 
   #right-panel {
@@ -267,7 +251,6 @@ li {
     height: auto;
     position: relative;
     margin: 2vw;
-    /*        margin: 10px;*/
   }
 
   img {
@@ -307,22 +290,3 @@ li {
     margin-left: 10px;
   }
 }
-
-/*
-@media only screen and (min-width: 1750px) {
-
-    img {
-        width: calc((66vw - 68px)/3);
-        height: auto;
-    }
-
-    #right-panel {
-        height: auto;
-        width: calc(66vw - 50px);
-    }
-
-    img:nth-child(3) {
-        padding-bottom: 0px;
-    }
-}
-*/

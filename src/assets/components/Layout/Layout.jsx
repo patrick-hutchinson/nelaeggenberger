@@ -10,10 +10,10 @@ export default function Layout() {
     let font_colours = ["ffb261", "3f76f7", "c4ffb3", "c48d0b", "ae63e1", "678c26", "ff77d0"];
 
     let randomcolor = Math.floor(Math.random() * bg_colours.length);
-    //console.log(`rgb(${bg_colours[randomcolor]})`);
+
     document.querySelector("body").style.backgroundColor = `#${bg_colours[randomcolor]}`;
     document.querySelector("body").style.color = `#${font_colours[randomcolor]}`;
-    document.querySelector("a").style.color = `#${font_colours[randomcolor]}`;
+    // document.querySelector("a").style.color = `#${font_colours[randomcolor]}`;
     //document.querySelector('a').style.borderBottom = `1px solid #${font_colours[randomcolor]}`;
 
     function invertHex(hex) {
@@ -21,7 +21,6 @@ export default function Layout() {
     }
     let invertedFontColor = invertHex(`${font_colours[randomcolor]}`);
     let invertedBGColor = invertHex(`${bg_colours[randomcolor]}`);
-    console.log(invertedFontColor);
 
     document.querySelector(":root").style.setProperty("--inverted-font-color", "#" + invertedFontColor);
     document.querySelector(":root").style.setProperty("--inverted-bg-color", "#" + invertedBGColor);
@@ -45,8 +44,6 @@ export default function Layout() {
         imgs.setAttribute("style", "-webkit-filter:invert(1)");
       });
     });
-
-    console.log(window.innerWidth);
   }, []);
 
   return (
