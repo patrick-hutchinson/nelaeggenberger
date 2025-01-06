@@ -10,33 +10,6 @@
   src: url("/assets/fonts/EBGaramond-Italic-VariableFont_wght.ttf");
 }
 
-a {
-  color: var(--visited-link);
-  text-decoration: none;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-thickness: 1px;
-}
-
-a:visited {
-  color: var(--visited-link);
-}
-
-a:hover {
-  cursor: pointer;
-}
-
-::-moz-selection {
-  /* Code for Firefox */
-  color: var(--inverted-font-color);
-  background: var(--inverted-bg-color);
-}
-
-::selection {
-  color: var(--inverted-font-color);
-  background: var(--inverted-bg-color);
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -62,24 +35,48 @@ a:hover {
   scrollbar-width: none;
 }
 
+::-moz-selection {
+  /* Code for Firefox */
+  color: var(--inverted-font-color);
+  background: var(--inverted-bg-color);
+}
+
+::selection {
+  color: var(--inverted-font-color);
+  background: var(--inverted-bg-color);
+}
+
 html,
 body {
   font-size: 21px;
   line-height: 23px;
   font-family: AGaramondPro;
 
-  /* IE and Edge */
   -ms-overflow-style: none;
   -webkit-appearance: none;
-  /* Firefox */
   scrollbar-width: none;
   overflow: -moz-scrollbars-none;
 
-  /*hier is die schriftfarbe*/
   color: black;
-  /*    background-color: #FFF;*/
+
   font-weight: 400;
   letter-spacing: 0.4px;
+}
+
+a {
+  color: var(--visited-link);
+  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+a:visited {
+  color: var(--visited-link);
+}
+
+a:hover {
+  cursor: pointer;
 }
 
 em {
@@ -87,9 +84,19 @@ em {
   font-family: "AGaramondPro-Italic";
 }
 
-.textcontent {
-  font-size: 18px;
-  line-height: 20px;
+p {
+  text-indent: 60px;
+}
+
+p:nth-child(1) {
+  text-indent: 0px;
+}
+
+li {
+  text-indent: -60px;
+  padding-left: 65px;
+  text-decoration: none;
+  list-style: none;
 }
 
 #left-panel {
@@ -114,29 +121,21 @@ em {
   display: none;
 }
 
-p {
-  text-indent: 60px;
-}
-#contact p {
-  text-indent: 0px;
+.textcontent {
+  font-size: 18px;
+  line-height: 20px;
 }
 
-p:nth-child(1) {
-  text-indent: 0px;
-}
 .textcontent p {
   text-indent: -60px;
 }
 
-.menuitem {
-  cursor: pointer;
+#contact p {
+  text-indent: 0px;
 }
-
-/*
-.menupoints {
-    line-height: 20px;
+#contact p:first-child {
+  padding-bottom: 5px;
 }
-*/
 
 .email {
   padding-bottom: 5px;
@@ -148,10 +147,6 @@ p:nth-child(1) {
   position: fixed;
   overflow-y: scroll;
 
-  /*    width: 59vw;*/
-  /*the width of the left panel is 34vw, resulting in 65vw minus the margins */
-
-  /*this value needs to be checked*/
   width: calc(66vw - 60px);
   height: 100vh;
   margin: 10px;
@@ -180,23 +175,8 @@ p:nth-child(1) {
   padding-bottom: 10px;
 }
 
-.italics {
-  font-family: AGaramondPro-Italic;
-}
-
 .subcategory-title {
   margin-left: 5px;
-}
-
-li {
-  text-indent: -60px;
-  padding-left: 65px;
-  text-decoration: none;
-  list-style: none;
-}
-
-.einzug {
-  margin-left: 60px;
 }
 
 .titelschrift-kleiner {
@@ -211,36 +191,6 @@ li {
   width: 34vw;
 }
 
-#contact p:first-child {
-  padding-bottom: 5px;
-}
-@media (min-width: 430px) and (max-width: 750px) {
-  #right-panel {
-    width: 100vw;
-    height: auto;
-    position: relative;
-    margin: 2vw;
-  }
-
-  #left-panel {
-    width: 100%;
-    margin: 2vw;
-    height: auto;
-    position: relative;
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-    vertical-align: top;
-    padding-bottom: 5px;
-  }
-
-  .copyrighttext {
-    width: 100vw;
-  }
-}
-
 /*rescaling for Mobile Versions*/
 @media only screen and (max-device-width: 802px) {
   body {
@@ -249,19 +199,43 @@ li {
     line-height: 1.2;
   }
 
-  .textcontent {
-    font-size: 5vw;
-    line-height: 1.2em;
+  p {
+    text-indent: 3em;
   }
 
-  .titelschrift-kleiner {
-    font-size: 5vw;
-    margin-left: 10px;
+  p:nth-child(1) {
+    text-indent: 0px;
+  }
+
+  li {
+    text-indent: -3em;
+    padding-left: 3.25em;
+    text-decoration: none;
+    list-style: none;
   }
 
   #left-panel {
     width: 100%;
     margin: 2vw;
+    height: auto;
+  }
+
+  .textcontent {
+    font-size: 5vw;
+    line-height: 1.2em;
+  }
+
+  .textcontent p {
+    text-indent: -3em;
+  }
+
+  #contact p {
+    text-indent: 0px;
+  }
+
+  .titelschrift-kleiner {
+    font-size: 5vw;
+    margin-left: 10px;
   }
 
   #right-panel {
@@ -278,30 +252,10 @@ li {
     padding-bottom: 5px;
   }
 
-  li {
-    text-indent: -2.75em;
-    padding-left: 3em;
-    padding-right: 0.2em;
-    text-decoration: none;
-    list-style: none;
-  }
-
-  .einzug {
-    margin-left: 3em;
-  }
-
   .copyrighttext {
     font-size: 4vw;
     line-height: 4vw;
     width: 100vw;
-  }
-
-  p {
-    text-indent: 3em;
-  }
-
-  p:nth-child(1) {
-    text-indent: 0px;
   }
 
   .subcategory-title {
