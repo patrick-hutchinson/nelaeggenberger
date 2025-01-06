@@ -226,6 +226,7 @@ li {
     width: 100%;
     margin: 2vw;
     height: auto;
+    position: relative;
   }
 
   img {
