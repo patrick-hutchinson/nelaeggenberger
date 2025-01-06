@@ -39,14 +39,27 @@ export default function Home() {
     return <p>Loading...</p>; // Or some other loading state or message
   }
 
+  const components = {
+    marks: {
+      link: ({ value, children }) => {
+        const { href } = value;
+        return (
+          <a href={href} target="_blank" rel="noopener noreferrer">
+            {children}
+          </a>
+        );
+      },
+    },
+  };
+
   const Biography = () => {
-    return <PortableText value={data.biography} />;
+    return <PortableText value={data.biography} components={components} />;
   };
 
   const Contact = () => {
     return (
       <div id="contact">
-        <PortableText value={data.contact} />
+        <PortableText value={data.contact} components={components} />
       </div>
     );
   };
@@ -58,7 +71,7 @@ export default function Home() {
           {data.essays.map((essay, index) => {
             return (
               <li key={index}>
-                <PortableText value={essay.essay} key={index} />
+                <PortableText value={essay.essay} components={components} />
               </li>
             );
           })}
@@ -74,7 +87,7 @@ export default function Home() {
           {data.interviews.map((interview, index) => {
             return (
               <li key={index}>
-                <PortableText value={interview.interview} key={index} />
+                <PortableText value={interview.interview} components={components} />
               </li>
             );
           })}
@@ -90,7 +103,7 @@ export default function Home() {
           {data.talks.map((talk, index) => {
             return (
               <li key={index}>
-                <PortableText value={talk.talk} key={index} />
+                <PortableText value={talk.talk} components={components} />
               </li>
             );
           })}
@@ -106,7 +119,7 @@ export default function Home() {
           {data.exhibitions.map((exhibition, index) => {
             return (
               <li key={index}>
-                <PortableText value={exhibition.exhibition} key={index} />
+                <PortableText value={exhibition.exhibition} components={components} />
               </li>
             );
           })}
@@ -122,7 +135,7 @@ export default function Home() {
           {data.otherProjects.map((project, index) => {
             return (
               <li key={index}>
-                <PortableText value={project.otherProject} />
+                <PortableText value={project.otherProject} components={components} />
               </li>
             );
           })}
@@ -138,7 +151,7 @@ export default function Home() {
           {data.jurying.map((juryAppearance, index) => {
             return (
               <li key={index}>
-                <PortableText value={juryAppearance.juryAppearance} />
+                <PortableText value={juryAppearance.juryAppearance} components={components} />
               </li>
             );
           })}
@@ -154,7 +167,7 @@ export default function Home() {
           {data.mentoring.map((mentoringAppearance, index) => {
             return (
               <li key={index}>
-                <PortableText value={mentoringAppearance.mentoringAppearance} key={index} />
+                <PortableText value={mentoringAppearance.mentoringAppearance} components={components} />
               </li>
             );
           })}
@@ -162,17 +175,16 @@ export default function Home() {
       </div>
     );
   };
+
   const PortfolioReviews = () => {
     return (
       <div>
         <ul>
-          {data.portfolioReviews.map((portfolioReview, index) => {
-            return (
-              <li key={index}>
-                <PortableText value={portfolioReview.portfolioReview} key={index} />
-              </li>
-            );
-          })}
+          {data.portfolioReviews.map((portfolioReview, index) => (
+            <li key={index}>
+              <PortableText value={portfolioReview.portfolioReview} components={components} />
+            </li>
+          ))}
         </ul>
       </div>
     );
@@ -183,11 +195,13 @@ export default function Home() {
       <>
         {data.images.map((projectImages, projectIndex) =>
           projectImages.images.map((image, imageIndex) => {
+            let altText = projectImages.title;
+            console.log(image.title, "title");
             const fileSource = getFileSource(image);
             console.log(fileSource, "imgSrc");
             return (
               <div className="imageContainer" key={`${projectIndex}-${imageIndex}`}>
-                {renderFile(fileSource)}
+                {renderFile(fileSource, altText)}
               </div>
             );
           })
@@ -225,7 +239,6 @@ export default function Home() {
 
   return (
     <>
-      {/* <LeftPanel /> */}
       <div id="left-panel">
         <Biography />
         <br />
@@ -269,12 +282,13 @@ export default function Home() {
           <div className="subcategory-title">Portfolio Reviews</div>
           <br />
           <PortfolioReviews />
+          <br /> <br />
+          <Copyright />
         </div>
       </div>
       <div id="right-panel">
         <ImageGallery />
       </div>
-      <Copyright />
     </>
   );
 }

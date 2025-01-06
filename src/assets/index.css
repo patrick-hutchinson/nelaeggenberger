@@ -96,18 +96,18 @@ em {
   position: relative;
   display: inline-block;
   vertical-align: top;
-  width: 34vw;
+  width: calc(34vw + 40px);
 
-  /*auto for full page scroll, defined height for container scroll*/
-  height: auto;
-  overflow: scroll;
-  margin: 20px;
-  margin-top: 15px;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 20px;
+  padding-top: 15px;
 
-  /* IE and Edge */
-  -ms-overflow-style: none;
-  /* Firefox */
-  scrollbar-width: none;
+  -ms-overflow-style: none; /* IE and Edge */
+
+  scrollbar-width: none; /* Firefox */
+  box-sizing: border-box;
 }
 
 #left-panel::-webkit-scrollbar {
@@ -207,7 +207,7 @@ li {
 .copyrighttext {
   font-size: 14px;
   line-height: 16px;
-  margin: 20px;
+  padding-left: 5px;
   width: 34vw;
 }
 
@@ -225,6 +225,7 @@ li {
   #left-panel {
     width: 100%;
     margin: 2vw;
+    height: auto;
   }
 
   img {
