@@ -188,11 +188,11 @@ li {
   font-size: 14px;
   line-height: 16px;
   padding-left: 5px;
-  width: 34vw;
+  /* width: 34vw; */
 }
 
 /*rescaling for Mobile Versions*/
-@media only screen and (max-device-width: 802px) {
+@media (max-width: 767.98px) {
   body {
     font-size: 6vw;
     line-height: 1.3em;
@@ -216,7 +216,7 @@ li {
 
   #left-panel {
     width: 100%;
-    margin: 2vw;
+    margin: 1vw;
     height: auto;
   }
 
@@ -235,7 +235,7 @@ li {
 
   .titelschrift-kleiner {
     font-size: 5vw;
-    margin-left: 10px;
+    margin-left: 5px;
   }
 
   #right-panel {
@@ -259,6 +259,6 @@ li {
   }
 
   .subcategory-title {
-    margin-left: 10px;
+    margin-left: 5px;
   }
 }

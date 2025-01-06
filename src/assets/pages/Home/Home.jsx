@@ -11,6 +11,7 @@ import { renderFile } from "../../utils/renderFile";
 import styles from "./Home.module.css";
 
 export default function Home() {
+  let [isDesktop, setIsDesktop] = useState(window.innerWidth > 767.98);
   // Import Data
   let [data, setData] = useState();
   useEffect(() => {
@@ -34,10 +35,25 @@ export default function Home() {
       .catch(console.error);
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 802);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   // Early return if data is undefined or empty
   if (!data || data.length === 0) {
     return <p>Loading...</p>; // Or some other loading state or message
   }
+
+  console.log(isDesktop, "isDeesktop");
 
   const components = {
     marks: {
@@ -283,12 +299,17 @@ export default function Home() {
           <br />
           <PortfolioReviews />
           <br /> <br />
-          <Copyright />
+          {isDesktop && <Copyright />}
         </div>
       </div>
       <div id="right-panel">
         <ImageGallery />
       </div>
+      {!isDesktop && (
+        <>
+          <Copyright /> <br />
+        </>
+      )}
     </>
   );
 }
