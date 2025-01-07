@@ -256,6 +256,9 @@ li {
     font-size: 4vw;
     line-height: 4vw;
     width: 100vw;
+
+    padding: 0px 10px;
+    box-sizing: border-box;
   }
 
   .subcategory-title {
