@@ -195,7 +195,6 @@ li {
 @media (max-width: 767.98px) {
   body {
     font-size: 6vw;
-    line-height: 1.3em;
     line-height: 1.2;
   }
 
@@ -216,8 +215,11 @@ li {
 
   #left-panel {
     width: 100%;
-    margin: 1vw;
     height: auto;
+
+    padding: 2vw;
+    margin: 0px;
+    box-sizing: border-box;
   }
 
   .textcontent {
@@ -239,10 +241,14 @@ li {
   }
 
   #right-panel {
-    width: 100vw;
-    height: auto;
     position: relative;
-    margin: 2vw;
+
+    width: 100%;
+    height: auto;
+
+    padding: 2vw;
+    margin: 0px;
+    box-sizing: border-box;
   }
 
   img {
@@ -263,5 +269,12 @@ li {
 
   .subcategory-title {
     margin-left: 5px;
+  }
+}
+
+@media only screen and (max-device-width: 767.98px) {
+  #left-panel,
+  #right-panel {
+    padding: 2vw;
   }
 }
