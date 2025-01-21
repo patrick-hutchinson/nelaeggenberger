@@ -28,7 +28,8 @@ export default function Home() {
       otherProjects,
       jurying,
       mentoring,
-      portfolioReviews
+      portfolioReviews,
+      customSections
   }`
       )
       .then((data) => setData(data[0]))
@@ -53,8 +54,7 @@ export default function Home() {
     return <p>Loading...</p>; // Or some other loading state or message
   }
 
-  console.log(isDesktop, "isDeesktop");
-
+  console.log(data.customSections);
   const components = {
     marks: {
       link: ({ value, children }) => {
@@ -206,15 +206,40 @@ export default function Home() {
     );
   };
 
+  const CustomSections = () => {
+    return (
+      <div>
+        {data.customSections.map((customSection, sectionIndex) => {
+          return (
+            <div key={sectionIndex}>
+              <div className="subcategory-title">{customSection.sectionTitle}</div> <br />
+              <ul>
+                {customSection.entries.map((entry, entryIndex) => {
+                  return (
+                    <li key={entryIndex}>
+                      <PortableText value={entry.entry} components={components} />
+                    </li>
+                  );
+                })}
+              </ul>
+              <br />
+              <br />
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+
   const ImageGallery = () => {
     return (
       <>
         {data.images.map((projectImages, projectIndex) =>
           projectImages.images.map((image, imageIndex) => {
             let altText = projectImages.title;
-            console.log(image.title, "title");
+
             const fileSource = getFileSource(image);
-            console.log(fileSource, "imgSrc");
+
             return (
               <div className="imageContainer" key={`${projectIndex}-${imageIndex}`}>
                 {renderFile(fileSource, altText)}
@@ -298,6 +323,8 @@ export default function Home() {
           <div className="subcategory-title">Portfolio Reviews</div>
           <br />
           <PortfolioReviews />
+          <br /> <br />
+          {data.customSections && <CustomSections />}
           <br /> <br />
           {isDesktop && <Copyright />}
         </div>
